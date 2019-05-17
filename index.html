@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, user-scalable=no" />
+        <meta charset="UTF-8">
+        <style>
+, *:before, *:after {
+    box-zing: border-box; 
+}
+    html {
+        font-size: 13px;
+    }
+    body {
+        font-family: Avenir, "Open Sans", "Helvetica Neue", Helvetica, Arial, Verdana, Roboto, "游ゴシック", "Yu Gothic", "游ゴシック体", "YuGothic", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "Meiryo UI", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+        color: #444;
+        background-color: hsl(0, 0%, 96%);
+    }
+    h1 {
+    }
+
+    button {
+        border-radius: 3px;
+        font-size: 30px;
+    }
+
+    .main-nav li {
+        list-style: none;
+    }
+
+    .fb {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .main-nav  {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+        </style>
+    </head>
+    <body style="font-size:60px">
+        <center>
+      <img src="http://raspberrypi.local:8080/?action=stream" />
+    </center>
+        <div class="main-nav">
+            <div class="item">
+                <button id="left">ひだり</button>
+            </div>     
+            <div class="item">
+                <div class="fb">  
+                    <div>
+                        <button  id="forward">まえ</button>
+                    </div>
+                    <div>
+                        <button id="stop">とまる</button>
+                    </div>
+                    <div>
+                        <button id="back">もどる</button>
+                    </div>
+                </div>
+            </div> 
+            <div class="item">
+                <button id="right">みぎ</button>
+            </div>
+        </div>
+
+        <div id="safeD">
+            <button id="safe">safe</button>
+        </div>
+        <script>
+            const btn1 = document.getElementById('forward')
+btn1.addEventListener('click',async ()=>{
+    const res = await fetch('/forward')
+})
+const btn2 = document.getElementById('stop')
+btn2.addEventListener('click',async ()=>{
+    const res = await fetch('/stop')
+})
+const btn3 = document.getElementById('right')
+btn3.addEventListener('click',async ()=>{
+    const res = await fetch('/right')
+})
+const btn4 = document.getElementById('left')
+btn4.addEventListener('click',async ()=>{
+    const res = await fetch('/left')
+})
+const btn5 = document.getElementById('safe')
+btn5.addEventListener('click',async ()=>{
+    const res = await fetch('/safe')
+})
+const btn6 = document.getElementById('back')
+btn6.addEventListener('click',async ()=>{
+    const res = await fetch('/back')
+})
+
+
+        </script>
+    </body>
+</html>
